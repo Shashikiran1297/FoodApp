@@ -1,0 +1,29 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.BranchDAO;
+import com.example.demo.dto.Branch;
+
+@Service
+public class BranchService {
+	
+	@Autowired
+	private BranchDAO BranchDao;
+	
+	public Branch saveBranch(Branch branch) {
+		return BranchDao.saveBranch(branch);	
+	}
+	
+	public List<Branch> getAllBranch(){
+		return BranchDao.getAllBranch();
+	}
+	
+	public Branch findBranch(int id) {
+		return BranchDao.findBranch(id);
+	}
+
+}

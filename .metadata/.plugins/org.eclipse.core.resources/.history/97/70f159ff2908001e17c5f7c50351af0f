@@ -1,0 +1,10 @@
+package com.example.demo.dto;
+
+public class FoodOrder {
+
+	private int id;
+	private String status;
+	private int totalPrice;
+	private String customerName;
+	private long phno;
+}

@@ -1,0 +1,47 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.config.ResponseStructure;
+import com.example.demo.dao.UserDAO;
+import com.example.demo.dto.User;
+
+@Service
+public class UserService {
+
+	@Autowired
+	private UserDAO dao;
+
+
+	public User saveuser(User user) {
+		return dao.saveuser(user);
+	}
+
+	public List<User> getAllData() {
+		return dao.getAllData();
+	}
+	 public User findUser(int id) {
+		 return dao.findUser(id);
+	 }
+	 public ResponseStructure<User> updateUser(int id ,User user){
+		ResponseStructure<User> responseStructure=new ResponseStructure<User>();
+		responseStructure.setData(HttpStatus.OK.value());
+	    responseStructure.setMessage("Update Successfully");
+	    responseStructure.setData(dao.updateUser(id, user));
+		return responseStructure;
+	 }
+	 public ResponseStructure<User> deleteUser(int id){
+		 ResponseStructure<User> responseStructure=new ResponseStructure<>();
+		 responseStructure.setData(HttpStatus.OK.value());
+		 responseStructure.setMessage("deleted Succefully");
+		 responseStructure.equals(dao.deleteUser(id));
+		return responseStructure;
+	 }
+
+	
+}

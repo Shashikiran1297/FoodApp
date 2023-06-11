@@ -1,0 +1,30 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.UserDAO;
+import com.example.demo.dto.User;
+
+@Service
+public class UserService {
+
+	@Autowired
+	private UserDAO dao;
+
+	public User saveuser(User user) {
+		return dao.saveuser(user);
+	}
+
+	public List<User> getAllData() {
+		return dao.getAllData();
+	}
+//	public Optional<User> getById(Integer cust_id){
+//		
+//		return dao.getById(cust_id);
+//	}
+	
+}

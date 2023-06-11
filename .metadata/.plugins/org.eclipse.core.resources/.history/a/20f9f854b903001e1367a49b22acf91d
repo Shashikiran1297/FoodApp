@@ -1,0 +1,11 @@
+package com.example.demo.dto;
+
+public class User {
+
+	private int user_Id;
+	private String user_Name;
+	private String user_Address;
+	private String user_Email;
+	private String user_Password;
+	
+}
